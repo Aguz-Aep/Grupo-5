@@ -1,12 +1,149 @@
-<!DOCTYPE <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-    <h1>hi</h1>
-    </body>
-</html>>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Torneos de vóley, fechas e información de contacto de Club Horizonte.">
+    <meta name="theme-color" content="#102b46">
+    <link rel="stylesheet" href="styles.css">
+    <title>Liga Horizonte | Vóley para compartir</title>
+</head>
+<body>
+    <header class="encabezado">
+        <a class="logo" href="#inicio" aria-label="Liga Horizonte, inicio">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <ul class="lista_navegacion">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#torneos">Torneos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+        </nav>
+        <div class="acciones_encabezado">
+            <input type="checkbox" id="tema-oscuro">
+            <label class="boton_tema" for="tema-oscuro"><span>◐</span> Tema</label>
+        </div>
+    </header>
+
+    <main id="inicio">
+        <section class="portada" aria-labelledby="titulo_portada">
+            <div class="imagen_portada" role="img" aria-label="Jugadoras y jugadores disputan un punto de vóley en la cancha"></div>
+            <div class="portada_sombra"></div>
+            <div class="portada_contenido">
+                <p class="etiqueta"><span class="punto_estado"></span> Temporada 2026 · Inscripciones abiertas</p>
+                <h1 id="titulo_portada">El mejor juego<br>es <span>en equipo.</span></h1>
+                <p class="descripcion_portada">Un lugar para moverte, competir y encontrarte. Hay un lugar para vos en la cancha.</p>
+                <div class="acciones_portada">
+                    <a class="boton" href="#torneos">Ver próximos torneos <span>→</span></a>
+                    <a class="enlace_portada" href="#contacto">Contactanos <span>↓</span></a>
+                </div>
+            </div>
+            <p class="portada_epigrafe">Una liga<span></span> competitiva y amigable</p>
+        </section>
+
+        <div class="contenido">
+            <section class="seccion" id="torneos" aria-labelledby="titulo_torneos">
+                <p class="sobrelinea">AGENDA</p>
+                <h2 id="titulo_torneos">Juguemos</h2>
+                <p class="texto_intro">Armá tu equipo y vení a compartir la cancha. Estos son algunos de los encuentros de esta temporada.</p>
+
+                <div class="grilla_torneos">
+                    <article>
+                        <div class="torneo_imagen">
+                            <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80" alt="Pelota de vóley durante un partido" loading="lazy">
+                            <span class="etiqueta_imagen">INSCRIPCIÓN ABIERTA</span>
+                        </div>
+                        <div class="torneo_contenido">
+                            <p class="torneo_categoria">MIXTO <span>·</span> +18</p>
+                            <h3>Copa Horizonte</h3>
+                            <p class="torneo_detalle"><span>></span> Sábado 24 de octubre <span>-</span> Sede central</p>
+                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="torneo_imagen">
+                            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80" alt="Equipo de vóley reunido antes de un partido" loading="lazy">
+                            <span class="etiqueta_imagen etiqueta_secundaria">QUEDAN 4 LUGARES</span>
+                        </div>
+                        <div class="torneo_contenido">
+                            <p class="torneo_categoria">FEMENINO <span>·</span> SUB-21</p>
+                            <h3>Liga de primavera</h3>
+                            <p class="torneo_detalle"><span>></span> Domingo 1 de noviembre <span>-</span> Sede central</p>
+                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="torneo_imagen">
+                            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80" alt="Equipo masculino de vóley reunido antes de un partido" loading="lazy">
+                            <span class="etiqueta_imagen etiqueta_secundaria">QUEDAN 4 LUGARES</span>
+                        </div>
+                        <div class="torneo_contenido">
+                            <p class="torneo_categoria">MASCULINO <span>·</span> SUB-21</p>
+                            <h3>Liga de primavera</h3>
+                            <p class="torneo_detalle"><span>></span> Domingo 1 de noviembre <span>-</span> Sede central</p>
+                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
+                        </div>
+                    </article>
+                </div>
+                <p class="nota_muestra">Fechas y propuestas de ejemplo para la presentación del diseño.</p>
+            </section>
+
+            <section class="seccion" id="contacto" aria-labelledby="titulo_contacto">
+                <div class="contacto_info">
+                    <p class="sobrelinea">TU PRÓXIMO PLAN EMPIEZA ACÁ</p>
+                    <h2 id="titulo_contacto">¿Nos vemos en la cancha?</h2>
+                    <p>Dejanos un mensaje. Te contamos sobre horarios, categorías y cómo sumarte.</p>
+                    <address>
+                        <p><span>⌖</span> Av. Corrientes 5420, Villa Crespo</p>
+                        <p><span>◷</span> Lunes a viernes, 8:00 a 22:00</p>
+                        <p><span>✉</span> hola@clubhorizonte.com.ar</p>
+                    </address>
+                </div>
+                <form class="formulario">
+                    <div class="campo">
+                        <label for="nombre">Nombre y apellido</label>
+                        <input id="nombre" name="nombre" type="text" placeholder="Ej. Alex García" autocomplete="name" required>
+                    </div>
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="correo">Correo electrónico</label>
+                            <input id="correo" name="correo" type="email" placeholder="hola@ejemplo.com" autocomplete="email" required>
+                        </div>
+                        <div class="campo">
+                            <label for="actividad">Me interesa</label>
+                            <select id="actividad" name="actividad" required>
+                                <option value="" selected disabled>Elegí una opción</option>
+                                <option>Inscripción a un torneo</option>
+                                <option>Vóley formativo</option>
+                                <option>Vóley recreativo</option>
+                                <option>Vóley federado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="mensaje">Mensaje <span>(opcional)</span></label>
+                        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Contanos qué estás buscando..."></textarea>
+                    </div>
+                    <button class="boton" type="button">Enviar consulta <span>→</span></button>
+                    <p>Maqueta de demostración: el formulario no envía datos.</p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie_pagina">
+        <a class="logo" href="#inicio">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+        <p>Hecho para encontrarnos. <span>-</span> San Justo, La Matanza.</p>
+        <p>&copy; 2026 Liga Horizonte</p>
+    </footer>
+</body>
+</html>

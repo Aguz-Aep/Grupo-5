@@ -1,0 +1,538 @@
+body {
+    margin: 0;
+    background-color: #fbfaf7;
+    color: #203448;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #102b46;
+}
+
+.encabezado,
+.pie_pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.encabezado {
+    height: 5em;
+    padding: .75em 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #102b46;
+    font-size: 1.05em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo_icono {
+    display: flex;
+    width: 2.15em;
+    height: 2.15em;
+    align-items: center;
+    justify-content: center;
+    margin-right: .65em;
+    border-radius: .65em;
+    background-color: #102b46;
+    color: #ffb547;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.logo_acento {
+    color: #e29a32;
+}
+
+.navegacion {
+    margin-left: auto;
+}
+
+.lista_navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista_navegacion li {
+    margin-left: 1.5em;
+}
+
+.lista_navegacion a {
+    color: #526372;
+    font-size: .9em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.lista_navegacion a:hover,
+.enlace_texto:hover {
+    color: #ce8520;
+}
+
+.acciones_encabezado {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5em;
+}
+
+.acciones_encabezado input {
+    margin-right: .4em;
+}
+
+.boton_tema {
+    padding: .5em .7em;
+    border: 1px solid #e4e8e9;
+    border-radius: .5em;
+    font-size: .8em;
+    font-weight: bold;
+}
+
+.boton {
+    display: inline-block;
+    padding: .75em 1.15em;
+    border: 0;
+    border-radius: .55em;
+    background-color: #ffb547;
+    color: #102b46;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.boton span,
+.enlace_texto span {
+    margin-left: .5em;
+}
+
+.portada {
+    position: relative;
+    display: flex;
+    height: 43em;
+    align-items: center;
+    background-color: #102b46;
+    color: #fff;
+}
+
+.imagen_portada,
+.portada_sombra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.imagen_portada {
+    background-image: url("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=2000&q=85");
+    background-position: center;
+    background-size: cover;
+}
+
+.portada_sombra {
+    background: linear-gradient(to right, rgba(9, 29, 47, .88), rgba(9, 29, 47, .55) 60%, rgba(9, 29, 47, 0));
+}
+
+.portada_contenido,
+.contenido {
+    width: 90%;
+    max-width: 72em;
+    margin: 0 auto;
+}
+
+.portada_contenido {
+    position: relative;
+    padding: 5em 0;
+}
+
+.etiqueta {
+    margin: 0 0 1.25em;
+    color: #f4e5c8;
+    font-size: .75em;
+    font-weight: bold;
+}
+
+.punto_estado {
+    display: inline-block;
+    width: .55em;
+    height: .55em;
+    margin-right: .5em;
+    border-radius: 50%;
+    background-color: #ffb547;
+}
+
+.portada h1,
+#torneos h2,
+.contacto_info h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.portada h1 {
+    width: 75%;
+    font-size: 5em;
+}
+
+.portada h1 span {
+    color: #ffb547;
+}
+
+.descripcion_portada {
+    width: 55%;
+    margin: 1.25em 0 1.8em;
+    color: #eee;
+    font-size: 1.1em;
+}
+
+.acciones_portada {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.acciones_portada a {
+    margin-right: 1.4em;
+}
+
+.enlace_portada {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.portada_epigrafe {
+    position: absolute;
+    right: 2em;
+    bottom: 1em;
+    font-size: .78em;
+}
+
+.seccion {
+    padding: 5em 0;
+    border-bottom: 1px solid #e4e8e9;
+}
+
+.sobrelinea {
+    margin: 0 0 .7em;
+    color: #b67520;
+    font-size: .72em;
+    font-weight: bold;
+}
+
+#torneos h2,
+.contacto_info h2 {
+    color: #102b46;
+    font-size: 2.5em;
+}
+
+.texto_intro {
+    max-width: 42em;
+    margin: 1em 0 2em;
+    color: #667786;
+}
+
+.grilla_torneos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.25em;
+}
+
+.grilla_torneos article,
+.formulario {
+    border: 1px solid #e4e8e9;
+    border-radius: 1em;
+    background-color: #fff;
+}
+
+.torneo_imagen {
+    position: relative;
+}
+
+.torneo_imagen img {
+    width: 100%;
+}
+
+.etiqueta_imagen {
+    position: absolute;
+    bottom: .9em;
+    left: .9em;
+    padding: .35em .55em;
+    border-radius: .3em;
+    background-color: #ffb547;
+    color: #102b46;
+    font-size: .65em;
+    font-weight: bold;
+}
+
+.etiqueta_secundaria {
+    background-color: #fff;
+}
+
+.torneo_contenido {
+    padding: 1.2em;
+}
+
+.torneo_categoria {
+    margin: 0 0 .5em;
+    color: #b67520;
+    font-size: .7em;
+    font-weight: bold;
+}
+
+.torneo_contenido h3 {
+    margin: 0;
+    color: #102b46;
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+.torneo_detalle {
+    display: flex;
+    flex-wrap: wrap;
+    margin: .75em 0 1em;
+    color: #667786;
+    font-size: .76em;
+}
+
+.torneo_detalle span {
+    margin-right: .45em;
+    color: #b67520;
+}
+
+.enlace_texto {
+    display: inline-block;
+    color: #102b46;
+    font-size: .9em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nota_muestra,
+.formulario p {
+    color: #667786;
+    font-size: .75em;
+}
+
+.nota_muestra {
+    margin: .8em 0 0;
+}
+
+#contacto {
+    border: 0;
+}
+
+.contacto_info h2 {
+    max-width: 25em;
+}
+
+.contacto_info p {
+    color: #667786;
+}
+
+.contacto_info .sobrelinea {
+    color: #b67520;
+}
+
+.contacto_info address {
+    margin-top: 1.5em;
+    color: #506272;
+    font-size: .9em;
+    font-style: normal;
+}
+
+.contacto_info address p {
+    display: flex;
+    margin: .65em 0;
+}
+
+.contacto_info address span {
+    margin-right: .7em;
+    color: #b67520;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5em;
+}
+
+.campo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: .4em;
+    color: #102b46;
+    font-size: .8em;
+    font-weight: bold;
+}
+
+.campo label span {
+    color: #667786;
+    font-weight: normal;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 90%;
+    padding: .7em .8em;
+    border: 1px solid #d8e0e4;
+    border-radius: .45em;
+    background-color: #fdfdfc;
+    color: #203448;
+    font-family: Arial, sans-serif;
+    font-size: .85em;
+}
+
+.campo textarea {
+    height: 6em;
+}
+
+.fila_campos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1em;
+    margin-bottom: 1em;
+}
+
+.formulario button {
+    margin-bottom: .6em;
+}
+
+.formulario p {
+    margin: 0;
+}
+
+.pie_pagina {
+    padding: 1em 5%;
+    border-top: 1px solid #e4e8e9;
+}
+
+.pie_pagina .logo {
+    font-size: .95em;
+}
+
+.pie_pagina .logo_icono {
+    width: 1.9em;
+    height: 1.9em;
+    font-size: 1em;
+}
+
+.pie_pagina p {
+    margin: 0;
+    color: #667786;
+    font-size: .78em;
+}
+
+@media screen and (min-width: 48em) {
+    .grilla_torneos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1.25em;
+    }
+
+    .fila_campos {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1em;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    #contacto {
+        display: grid;
+        grid-template-columns: .85fr 1.15fr;
+        grid-column-gap: 3em;
+    }
+
+    .grilla_torneos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 58em) {
+    .encabezado {
+        height: auto;
+        flex-wrap: wrap;
+        padding: .8em 1.5em;
+    }
+
+    .navegacion {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+
+    .acciones_encabezado {
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .encabezado {
+        padding: .8em 1em;
+    }
+
+    .lista_navegacion {
+        justify-content: space-between;
+    }
+
+    .lista_navegacion li {
+        margin-left: 0;
+    }
+
+    .lista_navegacion a {
+        font-size: .8em;
+    }
+
+    .portada {
+        height: 36em;
+    }
+
+    .portada h1 {
+        width: 100%;
+        font-size: 3.5em;
+    }
+
+    .descripcion_portada {
+        width: 90%;
+    }
+
+    .portada_epigrafe {
+        right: 1em;
+    }
+
+    .seccion {
+        padding: 4em 0;
+    }
+
+    .formulario {
+        padding: 1em;
+    }
+
+    .pie_pagina {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1em;
+    }
+}
