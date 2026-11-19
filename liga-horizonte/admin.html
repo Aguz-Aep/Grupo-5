@@ -53,15 +53,25 @@
                         <div class="campo">
                             <label for="torneo-deporte">Disciplina</label>
                             <select id="torneo-deporte" required>
-                                <option value="VÓLEY">Vóley</option>
-                                <option value="BEACH VÓLEY">Beach Vóley</option>
+                                <option value="VÓLEY">Voley</option>
+                                <option value="BEACH VÓLEY">Beach Voley</option>
                                 <option value="FUTSAL">Futsal</option>
                                 <option value="BÁSQUET">Básquet 3x3</option>
                             </select>
                         </div>
                         <div class="campo">
                             <label for="torneo-categoria">Categoría / Rama</label>
-                            <input id="torneo-categoria" type="text" placeholder="Ej. MIXTO · +18" required>
+                             <select id="torneo-categoria" required>
+                                <option value="MIXTO-SUB18">Mixto - Sub 18</option>
+                                <option value="MIXTO-SUB21">Mixto - Sub 21</option>
+                                <option value="MIXTO-MAYORES">Mixto - mayores</option>
+                                <option value="FEMENINO-SUB18">Femenino - Sub 18</option>
+                                <option value="FEMENINO-SUB21">Femenino - Sub 21</option>
+                                <option value="FEMENINO-MAYORES">Femenino - Mayores</option>
+                                <option value="MASCULINO-SUB18">Masculino - Sub 18</option>
+                                <option value="MASCULINO-SUB21">Masculino - Sub 21</option>
+                                <option value="MASCULINO-MAYORES">Masculino - Mayores</option>
+                            </select>
                         </div>
                     </div>
 
@@ -99,10 +109,15 @@
                         <div class="campo">
                             <label for="torneo-imagen-preset">Imagen de portada</label>
                             <select id="torneo-imagen-preset">
-                                <option value="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80">Vóley - Red y pelota</option>
-                                <option value="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80">Vóley - Equipo en cancha</option>
-                                <option value="https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80">Vóley - Remate en juego</option>
-                                <option value="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80">Polideportivo general</option>
+                                <option value="BeachVoley - Red y pelota" src="imgs/Beach.avif" class="beach">BeachVoley - Red y pelota</option>
+                                <option value="BeachVoley - Remate beach voley" src="imgs/RemateBeach.avif" class="beach">BeachVoley - Remate beach voley</option>
+                                <option value="Voley - Equipo en cancha" src="imgs/EquipoEnCancha.avif" class="voley">Voley - Equipo en cancha</option>
+                                <option value="Voley - Equipo femenino" src="imgs/voleyfemenino.jpg" class="voley">Voley - Equipo femenino</option>
+                                <option value="Futsal - Equipo masculino" src="imgs/futsalMasculino.avif" class="futsal">Futsal - Equipo masculino</option>
+                                <option value="Futsal - Equipo femenino" src="imgs/futsalFemenino.jpg" class="futsal">Futsal - Equipo femenino</option>
+                                <option value="Futsal - Cancha futsal" src="imgs/canchaFutsal.jpg" class="futsal">Futsal - Cancha futsal</option>
+                                <option value="Basquet3x3 - Equipo masculino" src="imgs/basquetMasculino.jpg" class="basquet3x3">Basquet 3x3 - Equipo masculino</option>
+                                <option value="Basquet3x3 - Equipo femenino" src="imgs/basquetFemenino.jpeg" class="basquet3x3">Basquet 3x3 - Equipo femenino</option>
                             </select>
                         </div>
                     </div>

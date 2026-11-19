@@ -6,6 +6,41 @@ window.addEventListener("load", () => {
     const listaUsuariosAdmin = document.getElementById("lista-usuarios-admin");
     const formAltaUsuarioAdmin = document.getElementById("form-alta-usuario-admin");
     const mensajeUsuarioAdmin = document.getElementById("mensaje-usuario-admin");
+    const selectDeporte = document.getElementById("torneo-deporte");
+    const selectImagen = document.getElementById("torneo-imagen-preset");
+
+    // Cada deporte se relaciona con la clase que ya tienen sus imágenes en el HTML.
+    const clasesPorDeporte = {
+        "VÓLEY": "voley",
+        "BEACH VÓLEY": "beach",
+        "FUTSAL": "futsal",
+        "BÁSQUET": "basquet3x3"
+    };
+
+    // Oculta las imágenes de otros deportes y selecciona la primera disponible.
+    const actualizarImagenes = () => {
+        const claseImagen = clasesPorDeporte[selectDeporte.value];
+        let primeraImagen = null;
+
+        for (let i = 0; i < selectImagen.options.length; i++) {
+            const opcion = selectImagen.options[i];
+            const corresponde = opcion.classList.contains(claseImagen);
+
+            opcion.hidden = !corresponde;
+
+            if (corresponde && primeraImagen === null) {
+                primeraImagen = opcion;
+            }
+        }
+
+        if (primeraImagen !== null) {
+            primeraImagen.selected = true;
+        }
+    };
+
+    // Se actualizan las opciones al cambiar el deporte y al abrir el formulario.
+    selectDeporte.addEventListener("change", actualizarImagenes);
+    actualizarImagenes();
 
     /** Muestra los torneos y asigna acciones a sus botones. */
     const renderizarListaAdmin = () => {
@@ -138,11 +173,13 @@ window.addEventListener("load", () => {
             precio,
             cupos,
             estado: document.getElementById("torneo-estado").value,
-            imagen: document.getElementById("torneo-imagen-preset").value
+            // Guardamos la ruta de la imagen (atributo src), no el nombre que se muestra.
+            imagen: selectImagen.options[selectImagen.selectedIndex].getAttribute("src")
         };
 
         guardarStorage(STORAGE_KEYS.TORNEOS, [nuevoTorneo, ...obtenerTorneos()]);
         formAlta.reset();
+        actualizarImagenes();
         document.getElementById("torneo-cupos").value = 8;
 
         mensajeAdmin.classList.remove("mensaje_error");
