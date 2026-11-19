@@ -16,42 +16,138 @@ const STORAGE_KEYS = {
 
 // Las fechas se guardan en formato AAAA-MM-DD para poder usar un input type="date".
 const TORNEOS_INICIALES = [
-    {
-        id: "t-1",
-        titulo: "Copa Horizonte",
-        deporte: "VÓLEY",
-        categoria: "MIXTO · +18",
-        fecha: "2026-12-05",
-        sede: "Sede central",
-        precio: 25000,
-        cupos: 8,
-        estado: "INSCRIPCIÓN ABIERTA",
-        imagen: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-        id: "t-2",
-        titulo: "Liga de primavera",
-        deporte: "VÓLEY",
-        categoria: "FEMENINO · SUB-21",
-        fecha: "2026-12-12",
-        sede: "Sede central",
-        precio: 22000,
-        cupos: 4,
-        estado: "ÚLTIMOS LUGARES",
-        imagen: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-        id: "t-3",
-        titulo: "Liga de primavera",
-        deporte: "VÓLEY",
-        categoria: "MASCULINO · SUB-21",
-        fecha: "2026-12-12",
-        sede: "Sede central",
-        precio: 22000,
-        cupos: 4,
-        estado: "ÚLTIMOS LUGARES",
-        imagen: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80"
-    }
+  {
+    id: "t-1",
+    titulo: "Copa Horizonte",
+    deporte: "VÓLEY",
+    categoria: "Mixto - Mayores",
+    fecha: "2026-12-05",
+    sede: "Sede central",
+    precio: 25000,
+    cupos: 8,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/EquipoEnCancha.avif"
+  },
+  {
+    id: "t-2",
+    titulo: "Liga de primavera",
+    deporte: "VÓLEY",
+    categoria: "Femenino - Sub 21",
+    fecha: "2026-12-12",
+    sede: "Sede central",
+    precio: 22000,
+    cupos: 4,
+    estado: "ÚLTIMOS LUGARES",
+    imagen: "./imgs/voleyfemenino.jpg"
+  },
+  {
+    id: "t-3",
+    titulo: "Liga de primavera",
+    deporte: "VÓLEY",
+    categoria: "Masculino - Sub 21",
+    fecha: "2026-12-12",
+    sede: "Sede central",
+    precio: 22000,
+    cupos: 4,
+    estado: "ÚLTIMOS LUGARES",
+    imagen: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    id: "t-4",
+    titulo: "Liga del Oeste",
+    deporte: "VÓLEY",
+    categoria: "Masculino - Mayores",
+    fecha: "2026-12-10",
+    sede: "Morón",
+    precio: 30000,
+    cupos: 8,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/voleymasculino.jpg"
+  },
+  {
+    id: "t-5",
+    titulo: "Circuito Arena Sur",
+    deporte: "BEACH VOLEY",
+    categoria: "Mixto - Mayores",
+    fecha: "2026-12-14",
+    sede: "Sede Central - Cancha Arena",
+    precio: 24000,
+    cupos: 6,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/Beach.avif"
+  },
+  {
+    id: "t-6",
+    titulo: "Open Verano Beach",
+    deporte: "BEACH VOLEY",
+    categoria: "Femenino - Sub 21",
+    fecha: "2026-12-19",
+    sede: "Complejo Parque Oeste",
+    precio: 22000,
+    cupos: 3,
+    estado: "ÚLTIMOS LUGARES",
+    imagen: "./imgs/RemateBeach.avif"
+  },
+  {
+    id: "t-7",
+    titulo: "Copa Relámpago Futsal",
+    deporte: "FUTSAL",
+    categoria: "Masculino - Mayores",
+    fecha: "2026-12-08",
+    sede: "Microestadio San Justo",
+    precio: 35000,
+    cupos: 10,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/futsalMasculino.avif"
+  },
+  {
+    id: "t-8",
+    titulo: "Torneo Clausura Femenino",
+    deporte: "FUTSAL",
+    categoria: "Femenino - Mayores",
+    fecha: "2026-12-15",
+    sede: "Sede Central - Cancha 2",
+    precio: 32000,
+    cupos: 4,
+    estado: "ÚLTIMOS LUGARES",
+    imagen: "./imgs/futsalFemenino.jpg"
+  },
+  {
+    id: "t-9",
+    titulo: "Desafío Juvenil Futsal",
+    deporte: "FUTSAL",
+    categoria: "Mixto - Sub 18",
+    fecha: "2026-12-20",
+    sede: "Polideportivo Ramos Mejía",
+    precio: 26000,
+    cupos: 8,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/canchaFutsal.jpg"
+  },
+  {
+    id: "t-10",
+    titulo: "Streetball 3x3 Nocturno",
+    deporte: "BÁSQUET 3X3",
+    categoria: "Masculino - Sub 21",
+    fecha: "2026-12-11",
+    sede: "Playón Sede Central",
+    precio: 20000,
+    cupos: 6,
+    estado: "INSCRIPCIÓN ABIERTA",
+    imagen: "./imgs/basquetMasculino.jpg"
+  },
+  {
+    id: "t-11",
+    titulo: "Copa Horizonte 3x3",
+    deporte: "BÁSQUET 3X3",
+    categoria: "Femenino - Sub 18",
+    fecha: "2026-12-18",
+    sede: "Cancha Exterior Morón",
+    precio: 18000,
+    cupos: 2,
+    estado: "ÚLTIMOS LUGARES",
+    imagen: "./imgs/basquetFemenino.jpeg"
+  }
 ];
 
 /**
