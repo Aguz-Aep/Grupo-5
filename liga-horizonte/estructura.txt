@@ -1,0 +1,22 @@
+liga-horizonte/
+├── index.html          (Login, registro y creación obligatoria del primer Admin)
+├── torneos.html        (Vista Usuario: catálogo, Tarjetas/Lista, Favoritos, Carrito y Contacto)
+├── admin.html          (Vista Administrador: alta y baja de torneos)
+├── cuenta.html         (Vista Mi Cuenta: datos del perfil, Favoritos e Inscripciones)
+│
+├── css/
+│   ├── base.css        (Variables Claro/Oscuro, reset, botones y formularios base)
+│   ├── layout.css      (Encabezado sticky, navegación, portada Hero y pie de página)
+│   ├── auth.css        (Estilos exclusivos de Login y Registro)
+│   ├── torneos.css     (Tarjetas, Vista Lista, botón Favoritos y sección Contacto)
+│   ├── carrito.css     (Panel lateral desplegable del Carrito de Inscripciones)
+│   └── paneles.css     (Estilos exclusivos de Panel Administrador y Mi Cuenta)
+│
+└── js/
+    ├── datos.js        (Claves de localStorage, datos iniciales y funciones de guardado)
+    ├── tema.js         (Alternancia entre Tema Claro y Tema Oscuro)
+    ├── sesion.js       (Control de sesión activa, roles y botón Admin ⇄ Usuario)
+    ├── auth.js         (Lógica de index.html: primer Admin, registro e inicio de sesión)
+    ├── usuario.js      (Lógica de torneos.html: Tarjetas/Lista, Favoritos, Carrito y Contacto)
+    ├── admin.js        (Lógica de admin.html: publicar y eliminar torneos)
+    └── cuenta.js       (Lógica de cuenta.html: perfil, quitar favoritos e historial)

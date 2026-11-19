@@ -1,0 +1,159 @@
+/* Panel Administrador */
+.layout_admin {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+}
+
+.subtitulo_form {
+    margin: 0 0 1em;
+    color: var(--texto-titulo);
+    font-size: 1.25em;
+}
+
+.panel_lista_admin {
+    padding: 1.6em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 1em;
+    background-color: var(--bg-superficie);
+}
+
+.lista_admin_items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85em;
+}
+
+.item_admin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0.9em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 0.7em;
+    background-color: var(--bg-suave);
+}
+
+.item_admin h3 {
+    margin: 0 0 0.25em;
+    color: var(--texto-titulo);
+    font-size: 1em;
+}
+
+.item_admin p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 0.82em;
+}
+
+/* Página Mi Cuenta */
+.tarjeta_perfil {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25em;
+    padding: 1.5em;
+    margin: 1.5em 0 2.5em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 1em;
+    background-color: var(--bg-superficie);
+    box-shadow: var(--sombra);
+}
+
+.avatar_perfil {
+    width: 3.6em;
+    height: 3.6em;
+    border-radius: 50%;
+    background-color: #102b46;
+    color: #ffb547;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info_perfil {
+    flex: 1;
+}
+
+.fila_nombre_perfil {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    flex-wrap: wrap;
+}
+
+.fila_nombre_perfil h2 {
+    margin: 0;
+    color: var(--texto-titulo);
+    font-size: 1.45em;
+}
+
+.badge_perfil {
+    padding: 0.25em 0.65em;
+    border-radius: 999px;
+    background-color: #ffb547;
+    color: #102b46;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.email_perfil {
+    margin: 0.35em 0 0.6em;
+    color: var(--texto-secundario);
+    font-size: 0.9em;
+}
+
+.resumen_perfil {
+    display: flex;
+    gap: 0.65em;
+    color: var(--texto-principal);
+    font-size: 0.85em;
+}
+
+.bloque_cuenta {
+    margin-top: 2.5em;
+}
+
+.subtitulo_cuenta {
+    margin: 0 0 0.3em;
+    color: var(--texto-titulo);
+    font-size: 1.5em;
+}
+
+.lista_inscripciones_cuenta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85em;
+    margin-top: 1em;
+}
+
+.card_inscripcion {
+    padding: 1em 1.25em;
+    border: 1px solid var(--borde-suave);
+    border-left: 4px solid #ffb547;
+    border-radius: 0.7em;
+    background-color: var(--bg-superficie);
+}
+
+.card_inscripcion h3 {
+    margin: 0 0 0.3em;
+    color: var(--texto-titulo);
+    font-size: 1.05em;
+}
+
+.card_inscripcion p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 0.85em;
+}
+
+@media screen and (min-width: 60em) {
+    .layout_admin {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+    }
+}

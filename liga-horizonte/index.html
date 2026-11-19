@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ingreso y registro de usuarios - Liga Horizonte.">
+    <meta name="theme-color" content="#102b46">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Ingreso | Liga Horizonte</title>
+</head>
+<body data-pagina="login">
+    <header class="encabezado">
+        <a class="logo" href="index.html" aria-label="Liga Horizonte, inicio">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+
+        <div class="acciones_encabezado">
+            <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
+            <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
+        </div>
+    </header>
+
+    <main class="contenedor_auth">
+        <section class="tarjeta_auth" aria-labelledby="titulo_auth">
+            <p class="sobrelinea">PLATAFORMA DE TORNEOS</p>
+            <h1 id="titulo_auth">Bienvenido a Liga Horizonte</h1>
+            <p class="texto_intro_auth" id="subtitulo-auth">Ingresá con tu cuenta o registrate para anotar tu equipo en los próximos torneos.</p>
+
+            <div id="alerta-primer-admin" class="alerta_sistema oculto" role="alert">
+                <strong>Configuración inicial requerida:</strong> Todavía no hay ningún usuario con perfil <b>Administrador</b> registrado. Creá el primer Administrador para habilitar la plataforma.
+            </div>
+
+            <div class="tabs_auth" id="tabs-auth">
+                <button type="button" class="tab_btn activo" data-tab="login">Iniciar sesión</button>
+                <button type="button" class="tab_btn" data-tab="registro">Crear cuenta</button>
+            </div>
+
+            <form id="form-login" class="formulario_auth">
+                <div class="campo">
+                    <label for="login-email">Correo electrónico</label>
+                    <input id="login-email" type="email" placeholder="tu@correo.com" required>
+                </div>
+                <div class="campo">
+                    <label for="login-password">Contraseña</label>
+                    <input id="login-password" type="password" placeholder="••••••••" required>
+                </div>
+                <p id="error-login" class="mensaje_error" aria-live="polite"></p>
+                <button class="boton boton_ancho" type="submit">Ingresar a la liga <span>→</span></button>
+            </form>
+
+            <form id="form-registro" class="formulario_auth oculto">
+                <div class="fila_campos">
+                    <div class="campo">
+                        <label for="reg-nombre">Nombre</label>
+                        <input id="reg-nombre" type="text" placeholder="Ej. Alex" required>
+                    </div>
+                    <div class="campo">
+                        <label for="reg-apellido">Apellido</label>
+                        <input id="reg-apellido" type="text" placeholder="Ej. García" required>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="reg-email">Correo electrónico</label>
+                    <input id="reg-email" type="email" placeholder="alex@ejemplo.com" required>
+                </div>
+                <div class="fila_campos">
+                    <div class="campo">
+                        <label for="reg-password">Contraseña</label>
+                        <input id="reg-password" type="password" minlength="4" placeholder="Mínimo 4 caracteres" required>
+                    </div>
+                    <div class="campo">
+                        <label for="reg-perfil">Perfil de cuenta</label>
+                        <select id="reg-perfil" required>
+                            <option value="usuario">Usuario (Jugador / Capitán)</option>
+                            <option value="admin">Administrador (Organizador)</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="error-registro" class="mensaje_error" aria-live="polite"></p>
+                <button class="boton boton_ancho" type="submit" id="btn-submit-registro">Registrarme <span>→</span></button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie_pagina">
+        <a class="logo" href="index.html">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+        <p>Hecho para encontrarnos. <span>-</span> San Justo, La Matanza.</p>
+        <p>&copy; 2026 Liga Horizonte</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

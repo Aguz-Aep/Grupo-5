@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración de torneos - Liga Horizonte.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/paneles.css">
+    <title>Panel Administrador | Liga Horizonte</title>
+</head>
+<body data-pagina="admin">
+    <header class="encabezado">
+        <a class="logo" href="admin.html" aria-label="Liga Horizonte, administración">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación de administración">
+            <ul class="lista_navegacion">
+                <li><a href="admin.html" class="activo_nav">Gestión Torneos</a></li>
+                <li><a href="cuenta.html">Mi Cuenta</a></li>
+            </ul>
+        </nav>
+
+        <div class="acciones_encabezado">
+            <a href="torneos.html" class="boton_rol" title="Ver la plataforma como Usuario sin cerrar sesión">
+                ⇄ Vista Usuario
+            </a>
+
+            <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
+            <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
+        </div>
+    </header>
+
+    <main class="contenido">
+        <section class="seccion sin_borde">
+            <p class="sobrelinea">PANEL DE ORGANIZACIÓN</p>
+            <h1 class="titulo_pagina">Administración de Torneos</h1>
+            <p class="texto_intro">Dá de alta nuevos torneos con sus detalles. Se publicarán automáticamente en la vista de los usuarios.</p>
+
+            <div class="layout_admin">
+                <form class="formulario" id="form-alta-torneo">
+                    <h2 class="subtitulo_form">Alta de nuevo torneo</h2>
+
+                    <div class="campo">
+                        <label for="torneo-titulo">Nombre del torneo</label>
+                        <input id="torneo-titulo" type="text" placeholder="Ej. Torneo Apertura Indoor" required>
+                    </div>
+
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="torneo-deporte">Disciplina</label>
+                            <select id="torneo-deporte" required>
+                                <option value="VÓLEY">Vóley</option>
+                                <option value="BEACH VÓLEY">Beach Vóley</option>
+                                <option value="FUTSAL">Futsal</option>
+                                <option value="BÁSQUET">Básquet 3x3</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="torneo-categoria">Categoría / Rama</label>
+                            <input id="torneo-categoria" type="text" placeholder="Ej. MIXTO · +18" required>
+                        </div>
+                    </div>
+
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="torneo-fecha">Fecha del encuentro</label>
+                            <input id="torneo-fecha" type="text" placeholder="Ej. Sábado 15 de noviembre" required>
+                        </div>
+                        <div class="campo">
+                            <label for="torneo-sede">Sede / Cancha</label>
+                            <input id="torneo-sede" type="text" placeholder="Ej. Sede Central - Cancha 1" required>
+                        </div>
+                    </div>
+
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="torneo-precio">Valor inscripción ($)</label>
+                            <input id="torneo-precio" type="number" min="0" step="500" placeholder="Ej. 25000" required>
+                        </div>
+                        <div class="campo">
+                            <label for="torneo-cupos">Cupos disponibles</label>
+                            <input id="torneo-cupos" type="number" min="1" max="64" value="8" required>
+                        </div>
+                    </div>
+
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="torneo-estado">Etiqueta destacada</label>
+                            <select id="torneo-estado">
+                                <option value="INSCRIPCIÓN ABIERTA">INSCRIPCIÓN ABIERTA</option>
+                                <option value="ÚLTIMOS LUGARES">ÚLTIMOS LUGARES</option>
+                                <option value="TORNEO RELÁMPAGO">TORNEO RELÁMPAGO</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="torneo-imagen-preset">Imagen de portada</label>
+                            <select id="torneo-imagen-preset">
+                                <option value="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80">Vóley - Red y pelota</option>
+                                <option value="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80">Vóley - Equipo en cancha</option>
+                                <option value="https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80">Vóley - Remate en juego</option>
+                                <option value="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80">Polideportivo general</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="boton boton_ancho" type="submit">Publicar torneo <span>+</span></button>
+                    <p id="mensaje-admin" class="mensaje_exito" aria-live="polite"></p>
+                </form>
+
+                <div class="panel_lista_admin">
+                    <div class="cabecera_panel_admin">
+                        <h2 class="subtitulo_form">Torneos publicados (<span id="total-torneos-admin">0</span>)</h2>
+                    </div>
+                    <div id="lista-torneos-admin" class="lista_admin_items"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie_pagina">
+        <a class="logo" href="admin.html">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+        <p>Hecho para encontrarnos. <span>-</span> San Justo, La Matanza.</p>
+        <p>&copy; 2026 Liga Horizonte</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

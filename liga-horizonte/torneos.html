@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Torneos de vóley, fechas e información de contacto de Club Horizonte.">
     <meta name="theme-color" content="#102b46">
-    <link rel="stylesheet" href="styles.css">
-    <title>Liga Horizonte | Vóley para compartir</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/torneos.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <title>Liga Horizonte | Torneos</title>
 </head>
-<body>
+<body data-pagina="usuario">
     <header class="encabezado">
         <a class="logo" href="#inicio" aria-label="Liga Horizonte, inicio">
             <span class="logo_icono">H</span>
@@ -20,12 +23,21 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#torneos">Torneos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="cuenta.html">Cuenta</a></li>
+                <li><a href="cuenta.html">Mi Cuenta</a></li>
             </ul>
         </nav>
+
         <div class="acciones_encabezado">
-            <input type="checkbox" id="tema-oscuro">
-            <label class="boton_tema" for="tema-oscuro"><span>◐</span> Tema</label>
+            <a href="admin.html" id="btn-cambiar-admin" class="boton_rol oculto" title="Cambiar a panel de Administrador sin cerrar sesión">
+                ⇄ Vista Admin
+            </a>
+
+            <button type="button" id="btn-abrir-carrito" class="boton_carrito" aria-label="Ver carrito de inscripciones">
+                🛒 Inscripciones <span id="contador-carrito" class="badge_carrito">0</span>
+            </button>
+
+            <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
+            <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
         </div>
     </header>
 
@@ -47,51 +59,24 @@
 
         <div class="contenido">
             <section class="seccion" id="torneos" aria-labelledby="titulo_torneos">
-                <p class="sobrelinea">AGENDA</p>
-                <h2 id="titulo_torneos">Juguemos</h2>
-                <p class="texto_intro">Armá tu equipo y vení a compartir la cancha. Estos son algunos de los encuentros de esta temporada.</p>
+                <div class="cabecera_seccion_torneos">
+                    <div>
+                        <p class="sobrelinea">AGENDA</p>
+                        <h2 id="titulo_torneos">Juguemos</h2>
+                        <p class="texto_intro">Armá tu equipo, guardá tus torneos favoritos y sumalos a tu lista de inscripción.</p>
+                    </div>
 
-                <div class="grilla_torneos">
-                    <article>
-                        <div class="torneo_imagen">
-                            <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=900&q=80" alt="Pelota de vóley durante un partido" loading="lazy">
-                            <span class="etiqueta_imagen">INSCRIPCIÓN ABIERTA</span>
-                        </div>
-                        <div class="torneo_contenido">
-                            <p class="torneo_categoria">MIXTO <span>·</span> +18</p>
-                            <h3>Copa Horizonte</h3>
-                            <p class="torneo_detalle"><span>></span> Sábado 24 de octubre <span>-</span> Sede central</p>
-                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="torneo_imagen">
-                            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80" alt="Equipo de vóley reunido antes de un partido" loading="lazy">
-                            <span class="etiqueta_imagen etiqueta_secundaria">QUEDAN 4 LUGARES</span>
-                        </div>
-                        <div class="torneo_contenido">
-                            <p class="torneo_categoria">FEMENINO <span>·</span> SUB-21</p>
-                            <h3>Liga de primavera</h3>
-                            <p class="torneo_detalle"><span>></span> Domingo 1 de noviembre <span>-</span> Sede central</p>
-                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="torneo_imagen">
-                            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80" alt="Equipo masculino de vóley reunido antes de un partido" loading="lazy">
-                            <span class="etiqueta_imagen etiqueta_secundaria">QUEDAN 4 LUGARES</span>
-                        </div>
-                        <div class="torneo_contenido">
-                            <p class="torneo_categoria">MASCULINO <span>·</span> SUB-21</p>
-                            <h3>Liga de primavera</h3>
-                            <p class="torneo_detalle"><span>></span> Domingo 1 de noviembre <span>-</span> Sede central</p>
-                            <a class="enlace_texto" href="#contacto">Quiero participar <span>→</span></a>
-                        </div>
-                    </article>
+                    <div class="controles_vista" role="group" aria-label="Modo de visualización de torneos">
+                        <button type="button" class="btn_vista activo" data-vista="tarjetas" id="btn-vista-tarjetas">
+                            ⊞ Tarjetas
+                        </button>
+                        <button type="button" class="btn_vista" data-vista="lista" id="btn-vista-lista">
+                            ☰ Lista
+                        </button>
+                    </div>
                 </div>
-                <p class="nota_muestra">Fechas y propuestas de ejemplo para la presentación del diseño.</p>
+
+                <div class="grilla_torneos" id="contenedor-torneos"></div>
             </section>
 
             <section class="seccion" id="contacto" aria-labelledby="titulo_contacto">
@@ -104,7 +89,7 @@
                         <p><span>✉</span> hola@ligahorizonte.com.ar</p>
                     </address>
                 </div>
-                <form class="formulario">
+                <form class="formulario" id="form-contacto">
                     <div class="campo">
                         <label for="nombre">Nombre y apellido</label>
                         <input id="nombre" name="nombre" type="text" placeholder="Ej. Alex García" autocomplete="name" required>
@@ -129,12 +114,39 @@
                         <label for="mensaje">Mensaje <span>(opcional)</span></label>
                         <textarea id="mensaje" name="mensaje" rows="3" placeholder="Contanos qué estás buscando..."></textarea>
                     </div>
-                    <button class="boton" type="button">Enviar consulta <span>→</span></button>
-                    <p>Maqueta de demostración: el formulario no envía datos.</p>
+                    <button class="boton" type="submit">Enviar consulta <span>→</span></button>
+                    <p id="feedback-contacto">Completá el formulario y te respondemos a la brevedad.</p>
                 </form>
             </section>
         </div>
     </main>
+
+    <div id="overlay-carrito" class="overlay_carrito oculto" aria-hidden="true">
+        <aside class="drawer_carrito" role="dialog" aria-labelledby="titulo-carrito">
+            <div class="cabecera_carrito">
+                <h2 id="titulo-carrito">Carrito de Inscripciones</h2>
+                <button type="button" id="btn-cerrar-carrito" class="btn_cerrar" aria-label="Cerrar carrito">✕</button>
+            </div>
+
+            <div id="lista-items-carrito" class="cuerpo_carrito">
+                <p class="texto_vacio">Todavía no agregaste torneos para inscribirte.</p>
+            </div>
+
+            <div class="pie_carrito">
+                <div class="campo">
+                    <label for="nombre-equipo-carrito">Nombre de tu equipo</label>
+                    <input id="nombre-equipo-carrito" type="text" placeholder="Ej. Remate Sur Vóley">
+                </div>
+                <div class="fila_total_carrito">
+                    <span>Total inscripción:</span>
+                    <strong id="total-carrito">$0</strong>
+                </div>
+                <button type="button" id="btn-confirmar-inscripcion" class="boton boton_ancho">
+                    Confirmar inscripciones <span>→</span>
+                </button>
+            </div>
+        </aside>
+    </div>
 
     <footer class="pie_pagina">
         <a class="logo" href="#inicio">
@@ -144,5 +156,10 @@
         <p>Hecho para encontrarnos. <span>-</span> San Justo, La Matanza.</p>
         <p>&copy; 2026 Liga Horizonte</p>
     </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/usuario.js"></script>
 </body>
 </html>

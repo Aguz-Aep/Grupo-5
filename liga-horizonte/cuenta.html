@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil de usuario y torneos favoritos - Liga Horizonte.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/torneos.css">
+    <link rel="stylesheet" href="css/paneles.css">
+    <title>Mi Cuenta | Liga Horizonte</title>
+</head>
+<body data-pagina="cuenta">
+    <header class="encabezado">
+        <a class="logo" href="torneos.html" aria-label="Liga Horizonte, inicio">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <ul class="lista_navegacion">
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="cuenta.html" class="activo_nav">Mi Cuenta</a></li>
+            </ul>
+        </nav>
+
+        <div class="acciones_encabezado">
+            <a href="admin.html" id="btn-cambiar-admin" class="boton_rol oculto">
+                ⇄ Vista Admin
+            </a>
+
+            <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
+            <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
+        </div>
+    </header>
+
+    <main class="contenido">
+        <section class="seccion sin_borde">
+            <p class="sobrelinea">PERFIL DE JUGADOR</p>
+            <h1 class="titulo_pagina">Mi Cuenta</h1>
+
+            <div class="tarjeta_perfil" id="datos-usuario-cuenta">
+                <div class="avatar_perfil" id="avatar-iniciales">LH</div>
+                <div class="info_perfil">
+                    <div class="fila_nombre_perfil">
+                        <h2 id="cuenta-nombre">Cargando usuario...</h2>
+                        <span class="badge_perfil" id="cuenta-rol">Usuario</span>
+                    </div>
+                    <p id="cuenta-email" class="email_perfil">usuario@ligahorizonte.com.ar</p>
+                    <div class="resumen_perfil">
+                        <span>★ <strong id="stat-favoritos">0</strong> Favoritos</span>
+                        <span>·</span>
+                        <span>✓ <strong id="stat-inscripciones">0</strong> Inscripciones confirmadas</span>
+                    </div>
+                </div>
+                <button type="button" id="btn-cerrar-sesion" class="boton_secundario">
+                    Cerrar sesión
+                </button>
+            </div>
+
+            <div class="bloque_cuenta">
+                <h2 class="subtitulo_cuenta">Mis Torneos Favoritos</h2>
+                <p class="texto_intro">Acá aparecen los torneos que marcaste con estrella desde el catálogo.</p>
+                <div id="contenedor-favoritos" class="grilla_torneos">
+                    <p class="texto_vacio">Todavía no marcaste ningún torneo como favorito.</p>
+                </div>
+            </div>
+
+            <div class="bloque_cuenta">
+                <h2 class="subtitulo_cuenta">Mis Inscripciones Confirmadas</h2>
+                <div id="contenedor-inscripciones-cuenta" class="lista_inscripciones_cuenta">
+                    <p class="texto_vacio">Aún no confirmaste inscripciones de equipo.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie_pagina">
+        <a class="logo" href="torneos.html">
+            <span class="logo_icono">H</span>
+            <span>liga<span class="logo_acento">horizonte</span></span>
+        </a>
+        <p>Hecho para encontrarnos. <span>-</span> San Justo, La Matanza.</p>
+        <p>&copy; 2026 Liga Horizonte</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/cuenta.js"></script>
+</body>
+</html>

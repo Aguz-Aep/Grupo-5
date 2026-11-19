@@ -1,0 +1,224 @@
+:root {
+    --bg-principal: #fbfaf7;
+    --bg-superficie: #ffffff;
+    --bg-input: #fdfdfc;
+    --bg-suave: #f3f1eb;
+    --texto-principal: #203448;
+    --texto-titulo: #102b46;
+    --texto-secundario: #667786;
+    --texto-nav: #526372;
+    --borde-suave: #e4e8e9;
+    --borde-input: #d8e0e4;
+    --acento: #ffb547;
+    --acento-hover: #f3a633;
+    --acento-texto: #b67520;
+    --marino: #102b46;
+    --sombra: 0 8px 24px rgba(16, 43, 70, 0.06);
+}
+
+[data-theme="dark"] {
+    --bg-principal: #0c1724;
+    --bg-superficie: #132336;
+    --bg-input: #0f1d2e;
+    --bg-suave: #1a2f47;
+    --texto-principal: #e6edf3;
+    --texto-titulo: #ffffff;
+    --texto-secundario: #9fb2c4;
+    --texto-nav: #c2d1df;
+    --borde-suave: #243b55;
+    --borde-input: #2d4866;
+    --acento: #ffb547;
+    --acento-hover: #ffc368;
+    --acento-texto: #ffb547;
+    --marino: #102b46;
+    --sombra: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--texto-titulo);
+}
+
+.oculto {
+    display: none !important;
+}
+
+.contenido {
+    width: 90%;
+    max-width: 72em;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 4.5em 0;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.seccion.sin_borde {
+    border-bottom: 0;
+}
+
+.sobrelinea {
+    margin: 0 0 0.6em;
+    color: var(--acento-texto);
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+}
+
+.titulo_pagina {
+    margin: 0;
+    color: var(--texto-titulo);
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+.texto_intro {
+    max-width: 42em;
+    margin: 0.8em 0 1.8em;
+    color: var(--texto-secundario);
+}
+
+.texto_vacio {
+    color: var(--texto-secundario);
+    font-size: 0.92em;
+}
+
+/* Botones globales */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45em;
+    padding: 0.75em 1.15em;
+    border: 0;
+    border-radius: 0.55em;
+    background-color: var(--acento);
+    color: #102b46;
+    font-family: Arial, sans-serif;
+    font-size: 0.95em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: var(--acento-hover);
+}
+
+.boton_ancho {
+    width: 100%;
+}
+
+.boton_secundario {
+    padding: 0.65em 1em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 0.55em;
+    background-color: var(--bg-suave);
+    color: var(--texto-titulo);
+    font-family: Arial, sans-serif;
+    font-size: 0.88em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton_secundario:hover {
+    border-color: var(--acento);
+}
+
+/* Formularios reutilizables */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 1em;
+    background-color: var(--bg-superficie);
+    box-shadow: var(--sombra);
+}
+
+.campo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.4em;
+    color: var(--texto-titulo);
+    font-size: 0.82em;
+    font-weight: bold;
+}
+
+.campo label span {
+    color: var(--texto-secundario);
+    font-weight: normal;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.7em 0.85em;
+    border: 1px solid var(--borde-input);
+    border-radius: 0.45em;
+    background-color: var(--bg-input);
+    color: var(--texto-principal);
+    font-family: Arial, sans-serif;
+    font-size: 0.88em;
+}
+
+.campo textarea {
+    height: 6em;
+}
+
+.fila_campos {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0.9em;
+}
+
+.formulario p {
+    color: var(--texto-secundario);
+    font-size: 0.8em;
+    margin: 0.6em 0 0;
+}
+
+.mensaje_error {
+    color: #d9383a;
+    font-size: 0.84em;
+    font-weight: bold;
+    margin: 0 0 0.8em;
+}
+
+.mensaje_exito {
+    color: #1e8e54 !important;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 48em) {
+    .fila_campos {
+        grid-template-columns: 1fr 1fr;
+    }
+}

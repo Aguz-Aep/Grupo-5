@@ -1,0 +1,67 @@
+.contenedor_auth {
+    min-height: calc(100vh - 9.5em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5em 1em;
+}
+
+.tarjeta_auth {
+    width: 100%;
+    max-width: 31em;
+    padding: 2em;
+    border: 1px solid var(--borde-suave);
+    border-radius: 1em;
+    background-color: var(--bg-superficie);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta_auth h1 {
+    margin: 0;
+    color: var(--texto-titulo);
+    font-size: 1.85em;
+}
+
+.texto_intro_auth {
+    margin: 0.6em 0 1.3em;
+    color: var(--texto-secundario);
+    font-size: 0.92em;
+}
+
+.alerta_sistema {
+    padding: 0.9em 1em;
+    margin-bottom: 1.2em;
+    border-left: 4px solid #ffb547;
+    border-radius: 0.5em;
+    background-color: var(--bg-suave);
+    color: var(--texto-principal);
+    font-size: 0.86em;
+    line-height: 1.4;
+}
+
+.tabs_auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4em;
+    padding: 0.3em;
+    margin-bottom: 1.3em;
+    border-radius: 0.6em;
+    background-color: var(--bg-suave);
+}
+
+.tab_btn {
+    padding: 0.6em;
+    border: 0;
+    border-radius: 0.45em;
+    background: transparent;
+    color: var(--texto-secundario);
+    font-family: Arial, sans-serif;
+    font-size: 0.88em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab_btn.activo {
+    background-color: #102b46;
+    color: #ffb547;
+}
