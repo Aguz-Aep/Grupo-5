@@ -19,4 +19,4 @@ liga-horizonte/
     ├── auth.js         (Validación de registro e inicio de sesión)
     ├── usuario.js      (Catálogo, favoritos, carrito y confirmación de inscripciones)
     ├── admin.js        (Alta/baja de torneos y asignación de roles)
-    └── cuenta.js       (Perfil, favoritos e historial de inscripciones)
+    └── cuenta.js       (Perfil, favoritos e historial de inscripciones) 
