@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/torneos.css">
+    <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="css/paneles.css">
     <title>Mi Cuenta | Liga Horizonte</title>
 </head>
@@ -29,6 +30,11 @@
             <a href="admin.html" id="btn-cambiar-admin" class="boton_rol oculto">
                 ⇄ Vista Admin
             </a>
+
+            <button type="button" id="btn-abrir-carrito" class="boton_carrito" aria-label="Ver carrito de inscripciones">
+                🛒 Inscripciones <span id="contador-carrito" class="badge_carrito">0</span>
+            </button>
+
             <button type="button" id="btn-cerrar-sesion" class="boton_secundario">Cerrar sesión</button>
             <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
             <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
@@ -58,7 +64,7 @@
 
             <div class="bloque_cuenta">
                 <h2 class="subtitulo_cuenta">Mis Torneos Favoritos</h2>
-                <p class="texto_intro">Acá aparecen los torneos que marcaste con estrella desde el catálogo.</p>
+                <p class="texto_intro">Podés anotar tu equipo directamente desde tus torneos guardados.</p>
                 <div id="contenedor-favoritos" class="grilla_torneos">
                     <p class="texto_vacio">Todavía no marcaste ningún torneo como favorito.</p>
                 </div>
@@ -72,6 +78,33 @@
             </div>
         </section>
     </main>
+
+    <div id="overlay-carrito" class="overlay_carrito oculto" aria-hidden="true">
+        <aside class="drawer_carrito" role="dialog" aria-labelledby="titulo-carrito">
+            <div class="cabecera_carrito">
+                <h2 id="titulo-carrito">Carrito de Inscripciones</h2>
+                <button type="button" id="btn-cerrar-carrito" class="btn_cerrar" aria-label="Cerrar carrito">✕</button>
+            </div>
+
+            <div id="lista-items-carrito" class="cuerpo_carrito">
+                <p class="texto_vacio">Todavía no agregaste torneos para inscribirte.</p>
+            </div>
+
+            <div class="pie_carrito">
+                <div class="campo">
+                    <label for="nombre-equipo-carrito">Nombre de tu equipo</label>
+                    <input id="nombre-equipo-carrito" type="text" placeholder="Ej. Remate Sur Vóley">
+                </div>
+                <div class="fila_total_carrito">
+                    <span>Total inscripción:</span>
+                    <strong id="total-carrito">$0</strong>
+                </div>
+                <button type="button" id="btn-confirmar-inscripcion" class="boton boton_ancho">
+                    Confirmar inscripciones <span>→</span>
+                </button>
+            </div>
+        </aside>
+    </div>
 
     <footer class="pie_pagina">
         <a class="logo" href="torneos.html">
