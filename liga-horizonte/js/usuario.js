@@ -163,10 +163,27 @@ document.addEventListener("DOMContentLoaded", () => {
     btnConfirmarInscripcion.addEventListener("click", () => {
         const usuario = obtenerSesion();
         if (usuario.carrito.length === 0) return;
+        const yaInscripto = usuario.carrito.some((id) =>
+            usuario.inscripciones.some((inscripcion) => inscripcion.torneoId === id));
+        
+        if (yaInscripto) {
+            alert("Ya estás inscripto en uno de los torneos seleccionados.");
+            return;
+        }
 
         const inputEquipo = document.getElementById("nombre-equipo-carrito");
         const nombreEquipo = inputEquipo.value.trim() || `Equipo de ${usuario.nombre}`;
         const torneos = obtenerTorneos();
+        const torneosSinCupos = usuario.carrito.filter((id) => {
+            const torneo = torneos.find((t) => t.id === id);
+            return torneo && torneo.cupos <= 0;
+        });
+        
+        if (torneosSinCupos.length > 0) {
+            alert("Uno o más torneos ya no tienen cupos disponibles.");
+            return;
+        }
+        
         const fechaHoy = new Date().toLocaleDateString("es-AR");
 
         const torneosActualizados = torneos.map((t) => {
