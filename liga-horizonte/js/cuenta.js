@@ -1,17 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     const usuario = obtenerSesion();
     if (!usuario) return;
 
     const iniciales = `${usuario.nombre[0] || ""}${usuario.apellido[0] || ""}`.toUpperCase();
     document.getElementById("avatar-iniciales").textContent = iniciales || "LH";
     document.getElementById("cuenta-nombre").textContent = `${usuario.nombre} ${usuario.apellido}`;
-    document.getElementById("cuenta-rol").textContent =
-        usuario.perfil === "admin" ? "Administrador" : "Usuario";
+    document.getElementById("cuenta-rol").textContent = usuario.perfil === "admin" ? "Administrador" : "Usuario";
     document.getElementById("cuenta-email").textContent = usuario.email;
 
     const contenedorFavoritos = document.getElementById("contenedor-favoritos");
     const contenedorInscripciones = document.getElementById("contenedor-inscripciones-cuenta");
-
     const overlayCarrito = document.getElementById("overlay-carrito");
     const btnAbrirCarrito = document.getElementById("btn-abrir-carrito");
     const btnCerrarCarrito = document.getElementById("btn-cerrar-carrito");
@@ -30,62 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /** Muestra las tarjetas de los torneos favoritos con opción de inscripción directa. */
     const renderizarFavoritosCuenta = () => {
-        const uActual = obtenerSesion();
+        const usuarioActual = obtenerSesion();
         const torneos = obtenerTorneos();
-        const favoritos = uActual.favoritos
-            .map((id) => torneos.find((t) => t.id === id))
-            .filter(Boolean);
+        const favoritos = usuarioActual.favoritos
+            .map((id) => torneos.find((torneo) => torneo.id === id))
+            .filter((torneo) => torneo !== undefined);
 
         document.getElementById("stat-favoritos").textContent = favoritos.length;
 
         if (favoritos.length === 0) {
-            contenedorFavoritos.innerHTML = `<p class="texto_vacio">Todavía no marcaste ningún torneo como favorito.</p>`;
+            contenedorFavoritos.innerHTML = '<p class="texto_vacio">Todavía no marcaste ningún torneo como favorito.</p>';
             return;
         }
 
-        contenedorFavoritos.innerHTML = favoritos
-            .map(
-                (t) => `
-                <article class="tarjeta_torneo">
-                    <div class="torneo_imagen">
-                        <img src="${t.imagen}" alt="${t.titulo}" loading="lazy">
-                        <span class="etiqueta_imagen">${t.estado}</span>
-                        <button
-                            type="button"
-                            class="btn_favorito activo"
-                            data-quitar-fav="${t.id}"
-                            title="Quitar de favoritos"
-                        >
-                            ★
-                        </button>
-                    </div>
-                    <div class="torneo_contenido">
-                        <p class="torneo_categoria">${t.deporte} · ${t.categoria}</p>
-                        <h3>${t.titulo}</h3>
-                        <p class="torneo_detalle"><span>></span> ${t.fecha} <span>-</span> ${t.sede}</p>
-                        <div class="acciones_tarjeta">
-                            <a href="torneos.html#torneos" class="boton boton_ancho">Ver en catálogo</a>
-                        </div>
-                    </div>
-                </article>
-            `
-            )
-            .join("");
-    };
-
-    contenedorFavoritos.addEventListener("click", (e) => {
-        const btnQuitarFav = e.target.closest("[data-quitar-fav]");
-        if (!btnQuitarFav) return;
-
-        const id = btnQuitarFav.dataset.quitarFav;
-        const uActual = obtenerSesion();
-        uActual.favoritos = uActual.favoritos.filter((favId) => favId !== id);
-        actualizarUsuarioActivo(uActual);
-        renderizarFavoritosCuenta();
-    });
-
-    const inscripciones = usuario.inscripciones || [];
-    document.getElementById("stat-inscripciones").textContent = inscripciones.length;
         contenedorFavoritos.innerHTML = favoritos.map((torneo) => {
             const enCarrito = usuarioActual.carrito.includes(torneo.id);
             const inscripcionExistente = usuarioActual.inscripciones.find((ins) => ins.torneoId === torneo.id);
@@ -179,26 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const inscripciones = usuarioActual.inscripciones || [];
         document.getElementById("stat-inscripciones").textContent = inscripciones.length;
 
-    if (inscripciones.length > 0) {
-        contenedorInscripciones.innerHTML = inscripciones
-            .map(
-                (ins) => `
-                <div class="card_inscripcion">
-                    <h3>${ins.torneoTitulo} (${ins.categoria})</h3>
-                    <p>Equipo inscrito: <strong>${ins.equipo}</strong> · Fecha del torneo: ${ins.fechaTorneo} · Confirmado el ${ins.fechaRegistro}</p>
-                </div>
-            `
-            )
-            .join("");
-    }
-    else {
-    contenedorInscripciones.innerHTML = "<p>Todavía no tenés inscripciones.</p>";
-    }
+        if (inscripciones.length === 0) {
+            contenedorInscripciones.innerHTML = '<p class="texto_vacio">Aún no confirmaste inscripciones de equipo.</p>';
+            return;
+        }
 
-    document.getElementById("btn-cerrar-sesion").addEventListener("click", () => {
-        localStorage.removeItem(STORAGE_KEYS.SESION);
-        window.location.href = "index.html";
-    });
+        contenedorInscripciones.innerHTML = inscripciones.map((inscripcion) => `
+            <div class="card_inscripcion">
+                <h3>${escaparHTML(inscripcion.torneoTitulo)} (${escaparHTML(inscripcion.categoria)})</h3>
+                <p>Equipo inscrito: <strong>${escaparHTML(inscripcion.equipo)}</strong> · Fecha del torneo: ${escaparHTML(formatearFecha(inscripcion.fechaTorneo))} · Confirmado el ${escaparHTML(inscripcion.fechaRegistro)}</p>
+            </div>
+        `).join("");
+    };
 
     /** Dibuja el contenido del carrito y calcula el total de inscripción. */
     const renderizarCarrito = () => {
@@ -231,8 +178,98 @@ document.addEventListener("DOMContentLoaded", () => {
                 </button>
             </div>
         `).join("");
+
+        const total = itemsSeleccionados.reduce((acumulado, item) => acumulado + Number(item.precio), 0);
+        totalEl.textContent = `$${total.toLocaleString("es-AR")}`;
+
+        listaCarrito.querySelectorAll("[data-quitar-carrito]").forEach((boton) => {
+            boton.addEventListener("click", () => {
+                const idQuitar = boton.getAttribute("data-quitar-carrito");
+                const uActual = obtenerSesion();
+                uActual.carrito = uActual.carrito.filter((id) => id !== idQuitar);
+                actualizarUsuarioActivo(uActual);
+                renderizarFavoritosCuenta();
+                renderizarCarrito();
+            });
+        });
     };
 
+    btnAbrirCarrito.addEventListener("click", abrirCarrito);
+    btnCerrarCarrito.addEventListener("click", cerrarCarrito);
+
+    overlayCarrito.addEventListener("click", (e) => {
+        if (e.target === overlayCarrito) cerrarCarrito();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !overlayCarrito.classList.contains("oculto")) {
+            cerrarCarrito();
+        }
+    });
+
+    btnConfirmarInscripcion.addEventListener("click", () => {
+        const usuarioActual = obtenerSesion();
+        if (usuarioActual.carrito.length === 0) return;
+
+        const nombreEquipo = inputEquipo.value.trim() || `Equipo de ${usuarioActual.nombre}`;
+        const cantidadSeleccionada = usuarioActual.carrito.length;
+        const torneos = obtenerTorneos();
+        const inscripcionesActuales = usuarioActual.inscripciones || [];
+
+        const torneosDisponibles = torneos.filter((torneo) => {
+            const estaEnCarrito = usuarioActual.carrito.includes(torneo.id);
+            const tieneCupos = Number(torneo.cupos) > 0;
+            const yaInscripto = inscripcionesActuales.find((ins) => ins.torneoId === torneo.id) !== undefined;
+            return estaEnCarrito && tieneCupos && !yaInscripto;
+        });
+
+        if (torneosDisponibles.length === 0) {
+            usuarioActual.carrito = [];
+            actualizarUsuarioActivo(usuarioActual);
+            renderizarFavoritosCuenta();
+            renderizarCarrito();
+            alert("No se pudo confirmar ninguna inscripción: los torneos seleccionados ya no tienen cupos o ya estabas inscripto.");
+            return;
+        }
+
+        const idsDisponibles = torneosDisponibles.map((torneo) => torneo.id);
+        const torneosActualizados = torneos.map((torneo) => {
+            if (idsDisponibles.includes(torneo.id)) {
+                return { ...torneo, cupos: Number(torneo.cupos) - 1 };
+            }
+            return torneo;
+        });
+
+        const fechaHoy = new Date().toLocaleDateString("es-AR");
+        const nuevasInscripciones = torneosDisponibles.map((torneo) => ({
+            torneoId: torneo.id,
+            torneoTitulo: torneo.titulo,
+            categoria: torneo.categoria,
+            fechaTorneo: torneo.fecha,
+            equipo: nombreEquipo,
+            fechaRegistro: fechaHoy
+        }));
+
+        usuarioActual.inscripciones = inscripcionesActuales.concat(nuevasInscripciones);
+        usuarioActual.carrito = [];
+        inputEquipo.value = "";
+
+        guardarStorage(STORAGE_KEYS.TORNEOS, torneosActualizados);
+        actualizarUsuarioActivo(usuarioActual);
+        renderizarFavoritosCuenta();
+        renderizarInscripciones();
+        renderizarCarrito();
+        cerrarCarrito();
+
+        if (torneosDisponibles.length < cantidadSeleccionada) {
+            alert(`Se confirmaron ${nuevasInscripciones.length} inscripción/es. Algunos torneos seleccionados ya no tenían cupos y no se incluyeron.`);
+        } else {
+            alert(`¡Inscripción confirmada para "${nombreEquipo}"!`);
+        }
+    });
+
+    overlayCarrito.setAttribute("aria-hidden", "true");
     renderizarFavoritosCuenta();
     renderizarInscripciones();
+    renderizarCarrito();
 });
