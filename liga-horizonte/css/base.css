@@ -222,3 +222,40 @@ a {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* El foco visible permite recorrer los controles con el teclado. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.boton_tema:focus-visible,
+.checkbox_oculto:focus-visible + .boton_tema {
+    outline: 3px solid var(--acento-texto);
+    outline-offset: 3px;
+}
+
+.formulario .mensaje_error {
+    display: block;
+    margin: 0.35em 0 0;
+    color: #d9383a;
+    font-size: 0.78em;
+    font-weight: bold;
+}
+
+.mensaje_error:empty {
+    display: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.58;
+}
+
+.formulario_auth .mensaje_error {
+    display: block;
+    margin: 0.35em 0 0;
+    color: #d9383a;
+    font-size: 0.78em;
+    font-weight: bold;
+}

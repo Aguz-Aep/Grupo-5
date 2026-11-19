@@ -83,6 +83,13 @@
     pointer-events: none;
 }
 
+.indicador_modo {
+    color: var(--texto-secundario);
+    font-size: 0.72em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 .boton_tema,
 .boton_rol,
 .boton_carrito {
@@ -258,6 +265,51 @@
 }
 
 @media screen and (max-width: 45em) {
+    .encabezado {
+        gap: 0.65em;
+        padding: 0.75em 1em;
+    }
+
+    .encabezado .logo {
+        font-size: 0.95em;
+    }
+
+    .encabezado .acciones_encabezado {
+        order: 2;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.45em;
+    }
+
+    .encabezado .navegacion {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+
+    .lista_navegacion {
+        gap: 0.75em;
+    }
+
+    .lista_navegacion li {
+        margin-left: 0;
+    }
+
+    .boton_tema,
+    .boton_rol,
+    .boton_carrito,
+    .acciones_encabezado .boton_secundario {
+        padding: 0.45em 0.55em;
+        font-size: 0.75em;
+    }
+
+    .indicador_modo {
+        font-size: 0.68em;
+    }
+
     .portada h1 {
         width: 100%;
         font-size: 3.1em;

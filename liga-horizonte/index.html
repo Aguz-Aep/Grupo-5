@@ -51,32 +51,29 @@
                 <button class="boton boton_ancho" type="submit">Ingresar a la liga <span>→</span></button>
             </form>
 
-            <form id="form-registro" class="formulario_auth oculto">
+            <form id="form-registro" class="formulario_auth oculto" novalidate>
                 <div class="fila_campos">
                     <div class="campo">
                         <label for="reg-nombre">Nombre</label>
-                        <input id="reg-nombre" type="text" placeholder="Ej. Alex" required>
+                        <input id="reg-nombre" type="text" placeholder="Ej. Alex" autocomplete="given-name" required aria-describedby="error-reg-nombre">
+                        <small id="error-reg-nombre" class="mensaje_error" aria-live="polite"></small>
                     </div>
                     <div class="campo">
                         <label for="reg-apellido">Apellido</label>
-                        <input id="reg-apellido" type="text" placeholder="Ej. García" required>
+                        <input id="reg-apellido" type="text" placeholder="Ej. García" autocomplete="family-name" required aria-describedby="error-reg-apellido">
+                        <small id="error-reg-apellido" class="mensaje_error" aria-live="polite"></small>
                     </div>
                 </div>
                 <div class="campo">
                     <label for="reg-email">Correo electrónico</label>
-                    <input id="reg-email" type="email" placeholder="alex@ejemplo.com" required>
+                    <input id="reg-email" type="email" placeholder="alex@ejemplo.com" autocomplete="email" required aria-describedby="error-reg-email">
+                    <small id="error-reg-email" class="mensaje_error" aria-live="polite"></small>
                 </div>
                 <div class="fila_campos">
                     <div class="campo">
                         <label for="reg-password">Contraseña</label>
-                        <input id="reg-password" type="password" minlength="4" placeholder="Mínimo 4 caracteres" required>
-                    </div>
-                    <div class="campo">
-                        <label for="reg-perfil">Perfil de cuenta</label>
-                        <select id="reg-perfil" required>
-                            <option value="usuario">Usuario (Jugador / Capitán)</option>
-                            <option value="admin">Administrador (Organizador)</option>
-                        </select>
+                        <input id="reg-password" type="password" minlength="8" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required aria-describedby="error-reg-password">
+                        <small id="error-reg-password" class="mensaje_error" aria-live="polite"></small>
                     </div>
                 </div>
                 <p id="error-registro" class="mensaje_error" aria-live="polite"></p>

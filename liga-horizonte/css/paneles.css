@@ -47,6 +47,16 @@
     font-size: 0.82em;
 }
 
+/* Gestión de cuentas desde el panel administrador. */
+.panel_usuarios_admin {
+    margin-top: 2em;
+}
+
+.formulario_alta_usuario {
+    margin-bottom: 1.25em;
+    box-shadow: none;
+}
+
 /* Página Mi Cuenta */
 .tarjeta_perfil {
     display: flex;

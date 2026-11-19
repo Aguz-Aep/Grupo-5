@@ -24,10 +24,11 @@
         </nav>
 
         <div class="acciones_encabezado">
+            <span id="indicador-modo" class="indicador_modo">Modo Admin</span>
             <a href="torneos.html" class="boton_rol" title="Ver la plataforma como Usuario sin cerrar sesión">
                 ⇄ Vista Usuario
             </a>
-
+            <button type="button" id="btn-cerrar-sesion" class="boton_secundario">Cerrar sesión</button>
             <input type="checkbox" id="tema-oscuro" class="checkbox_oculto">
             <label class="boton_tema" for="tema-oscuro"><span id="icono-tema">◐</span> <span id="texto-tema">Tema</span></label>
         </div>
@@ -40,7 +41,7 @@
             <p class="texto_intro">Dá de alta nuevos torneos con sus detalles. Se publicarán automáticamente en la vista de los usuarios.</p>
 
             <div class="layout_admin">
-                <form class="formulario" id="form-alta-torneo">
+                <form class="formulario" id="form-alta-torneo" novalidate>
                     <h2 class="subtitulo_form">Alta de nuevo torneo</h2>
 
                     <div class="campo">
@@ -67,7 +68,7 @@
                     <div class="fila_campos">
                         <div class="campo">
                             <label for="torneo-fecha">Fecha del encuentro</label>
-                            <input id="torneo-fecha" type="text" placeholder="Ej. Sábado 15 de noviembre" required>
+                            <input id="torneo-fecha" type="date" required>
                         </div>
                         <div class="campo">
                             <label for="torneo-sede">Sede / Cancha</label>
@@ -117,6 +118,48 @@
                     <div id="lista-torneos-admin" class="lista_admin_items"></div>
                 </div>
             </div>
+
+            <section class="panel_lista_admin panel_usuarios_admin" aria-labelledby="titulo-usuarios-admin">
+                <h2 id="titulo-usuarios-admin" class="subtitulo_form">Gestión de usuarios</h2>
+                <p class="texto_intro">Podés crear cuentas desde este panel y asignar o quitar permisos de administrador.</p>
+
+                <form id="form-alta-usuario-admin" class="formulario formulario_alta_usuario" novalidate>
+                    <h3 class="subtitulo_form">Crear una cuenta</h3>
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="admin-usuario-nombre">Nombre</label>
+                            <input id="admin-usuario-nombre" type="text" placeholder="Nombre" required>
+                        </div>
+                        <div class="campo">
+                            <label for="admin-usuario-apellido">Apellido</label>
+                            <input id="admin-usuario-apellido" type="text" placeholder="Apellido" required>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="admin-usuario-email">Correo electrónico</label>
+                        <input id="admin-usuario-email" type="email" placeholder="persona@correo.com" required>
+                    </div>
+                    <div class="fila_campos">
+                        <div class="campo">
+                            <label for="admin-usuario-password">Contraseña</label>
+                            <input id="admin-usuario-password" type="password" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                        <div class="campo">
+                            <label for="admin-usuario-perfil">Perfil</label>
+                            <select id="admin-usuario-perfil" required>
+                                <option value="usuario">Usuario</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p id="mensaje-usuario-admin" class="mensaje_error" aria-live="polite"></p>
+                    <button type="submit" class="boton boton_ancho">Crear cuenta</button>
+                </form>
+
+                <div id="lista-usuarios-admin" class="lista_admin_items">
+                    <p class="texto_vacio">Cargando usuarios...</p>
+                </div>
+            </section>
         </section>
     </main>
 

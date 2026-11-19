@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     const checkboxTema = document.getElementById("tema-oscuro");
     const iconoTema = document.getElementById("icono-tema");
     const textoTema = document.getElementById("texto-tema");
     const temaGuardado = localStorage.getItem(STORAGE_KEYS.TEMA) || "claro";
 
+    /** Aplica las variables de color del tema elegido. */
     const aplicarTema = (tema) => {
         const esOscuro = tema === "oscuro";
         document.documentElement.setAttribute("data-theme", esOscuro ? "dark" : "light");
