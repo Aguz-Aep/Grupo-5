@@ -172,7 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const inputEquipo = document.getElementById("nombre-equipo-carrito");
-        const nombreEquipo = inputEquipo.value.trim() || `Equipo de ${usuario.nombre}`;
+        const nombreEquipo = inputEquipo.value.trim();
+        if (nombreEquipo === "") {
+            alert("Debés ingresar el nombre de tu equipo.");
+            return;
+        }
+        
         const torneos = obtenerTorneos();
         const torneosSinCupos = usuario.carrito.filter((id) => {
             const torneo = torneos.find((t) => t.id === id);
